@@ -1,0 +1,16 @@
+{
+  "name": "Soft Days",
+  "short_name": "SoftDays",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#1a0f2e",
+  "theme_color": "#1a0f2e",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "applogo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

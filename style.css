@@ -1,0 +1,232 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(120deg, #2b193d, #3a215f, #512b81);
+  background-size: 300% 300%;
+  animation: bgMove 25s ease infinite;
+  color: #fff;
+}
+
+/* Background movement */
+@keyframes bgMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.screen {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Bond screen */
+.bond-content {
+  width: 100%;
+  max-width: 380px;
+  text-align: center;
+  animation: fadeIn 1.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  margin-bottom: 24px;
+}
+
+label {
+  display: block;
+  text-align: left;
+  font-size: 14px;
+  margin-bottom: 16px;
+  opacity: 0.9;
+}
+
+input {
+  width: 100%;
+  margin-top: 6px;
+  padding: 14px;
+  border-radius: 14px;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+}
+
+input::placeholder {
+  color: rgba(255,255,255,0.6);
+}
+
+button {
+  margin-top: 24px;
+  width: 100%;
+  padding: 14px;
+  border-radius: 18px;
+  border: none;
+  background: rgba(255,255,255,0.9);
+  color: #2b193d;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:active {
+  transform: scale(0.96);
+}
+
+/* App container */
+.app-container {
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+  animation: fadeIn 1.2s ease;
+}
+
+/* Cat */
+.cat-wrapper {
+  width: 160px;
+  margin: 0 auto 24px;
+}
+
+.cat-wrapper img {
+  width: 100%;
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Question */
+.soft-question {
+  font-size: 16px;
+  opacity: 0.85;
+  margin-bottom: 20px;
+}
+
+/* Mood dots */
+.mood-row {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.mood-row span {
+  font-size: 22px;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.mood-row span:active {
+  transform: scale(0.9);
+}
+
+/* Message */
+.soft-message {
+  font-size: 17px;
+  font-family: 'Playfair Display', serif;
+  margin: 20px 0;
+  min-height: 48px;
+  opacity: 0.9;
+}
+
+/* Lonely trigger */
+.lonely-trigger {
+  background: transparent;
+  border: none;
+  color: rgba(255,255,255,0.7);
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+/* Lonely Mode Screen */
+.lonely-screen {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 10, 35, 0.95);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 10;
+  animation: fadeIn 0.6s ease;
+}
+
+.lonely-content {
+  max-width: 420px;
+  text-align: center;
+}
+
+.lonely-line {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  line-height: 1.6;
+  margin-bottom: 28px;
+  opacity: 0;
+  animation: textAppear 1s forwards;
+}
+
+@keyframes textAppear {
+  to { opacity: 1; }
+}
+
+.lonely-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.lonely-actions button {
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  border-radius: 20px;
+  padding: 10px 18px;
+  border: none;
+  font-size: 14px;
+}
+
+/* Slow emotional mode */
+body.slow-motion * {
+  animation-duration: 2s !important;
+  transition-duration: 2s !important;
+}
+
+/* Cat closeness */
+.cat-wrapper.close img {
+  transform: scale(1.08);
+}
+
+input, button {
+  font-family: inherit;
+}
+
+/* iPhone safe-area support */
+@supports (padding: env(safe-area-inset-bottom)) {
+  .screen {
+    padding-bottom: calc(24px + env(safe-area-inset-bottom));
+  }
+}
