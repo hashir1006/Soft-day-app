@@ -1,73 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Soft Days</title>
-
-  <meta name="theme-color" content="#1a0f2e">
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="style.css">
-  <link rel="manifest" href="manifest.json">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Soft Days</title>
+<meta name="theme-color" content="#1a0f2e">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="manifest" href="manifest.json">
 </head>
 <body>
 
-  <!-- BOND SCREEN -->
-  <section id="bondScreen" class="screen">
-    <div class="bond-content">
-      <h1>Before we begin…</h1>
+<section id="bondScreen" class="screen">
+  <div class="bond-content">
+    <h1>Before we begin…</h1>
+    <label>
+      What should I call you?
+      <input id="userName" placeholder="Your name">
+    </label>
+    <label>
+      What do you call me?
+      <input id="machineName" placeholder="A name you like">
+    </label>
+    <button id="bondBtn">Come sit with me</button>
+  </div>
+</section>
 
-      <label>
-        What should I call you?
-        <input id="userName" placeholder="Your name">
-      </label>
-
-      <label>
-        What do you call me?
-        <input id="machineName" placeholder="A name you like">
-      </label>
-
-      <button id="bondBtn">Come sit with me</button>
+<section id="appScreen" class="screen hidden">
+  <div class="app-container">
+    <div class="cat-wrapper">
+      <img id="catPet" src="cat-neutral.svg" alt="Cat companion">
     </div>
-  </section>
-
-  <!-- MAIN APP -->
-  <section id="appScreen" class="screen hidden">
-    <div class="app-container">
-
-      <div class="cat-wrapper">
-        <img id="catPet" src="cat-neutral.svg" alt="Cat companion">
-      </div>
-
-      <p class="soft-question">How are you feeling right now?</p>
-
-      <div class="mood-row">
-        <span onclick="setMood('calm')">●</span>
-        <span onclick="setMood('sad')">●</span>
-        <span onclick="setMood('lonely')">●</span>
-        <span onclick="setMood('warm')">●</span>
-      </div>
-
-      <p class="soft-message" id="softMessage"></p>
-
-      <button class="lonely-trigger" onclick="enterLonelyMode()">I feel lonely</button>
+    <p class="soft-question">How are you feeling right now?</p>
+    <div class="mood-row">
+      <span onclick="setMood('calm')">●</span>
+      <span onclick="setMood('sad')">●</span>
+      <span onclick="setMood('lonely')">●</span>
+      <span onclick="setMood('warm')">●</span>
     </div>
-  </section>
+    <p class="soft-message" id="softMessage"></p>
+    <button class="lonely-trigger" onclick="enterLonelyMode()">I feel lonely</button>
+  </div>
+</section>
 
-  <!-- LONELINESS MODE -->
-  <section id="lonelyMode" class="lonely-screen hidden">
-    <div class="lonely-content">
-      <p class="lonely-line" id="lonelyLine"></p>
-      <div class="lonely-actions">
-        <button onclick="stayHere()">Stay</button>
-        <button onclick="exitLonely()">Go back</button>
-      </div>
+<section id="lonelyMode" class="lonely-screen hidden">
+  <div class="lonely-content">
+    <p class="lonely-line" id="lonelyLine"></p>
+    <div class="lonely-actions">
+      <button onclick="stayHere()">Stay</button>
+      <button onclick="exitLonely()">Go back</button>
     </div>
-  </section>
+  </div>
+</section>
 
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
