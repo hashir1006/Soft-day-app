@@ -1,3 +1,10 @@
+// Force initial state (important for Vercel / refresh)
+window.addEventListener("load", () => {
+  const lonelyMode = document.getElementById("lonelyMode");
+  if (lonelyMode) lonelyMode.classList.add("hidden");
+});
+
+
 // Elements
 const bondBtn = document.getElementById("bondBtn");
 const bondScreen = document.getElementById("bondScreen");
