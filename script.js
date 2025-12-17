@@ -21,15 +21,15 @@ let moodIndex = 0;
 const moodTexts = {
   calm: "Let’s stay here for a moment.",
   sad: "It’s okay to feel heavy sometimes.",
-  lonely: "You’re not alone in this moment.",
+  lonely: "You’re not alone in this moment Rani.",
   warm: "There’s a little warmth here."
 };
 
 const lonelyMessages = [
   "Hey…",
-  "Loneliness doesn’t mean you’re unloved.",
-  "It just means you’re human.",
-  "I’m here. Take your time."
+  "Loneliness doesn’t mean you’re unloved Rani Ji.",
+  "It just means you’re a Good and pure soul.",
+  "I’m here Rani. Take your time."
 ];
 
 let lonelyIndex = 0;
@@ -46,7 +46,7 @@ bondBtn.addEventListener("click", () => {
   softMessage = document.getElementById("softMessage");
   catPet = document.getElementById("catPet");
 
-  softMessage.innerText = "I'm here. Take your time.";
+  softMessage.innerText = "I'm here Rani ji. Take your time.";
 });
 
 function rotateMood() {
