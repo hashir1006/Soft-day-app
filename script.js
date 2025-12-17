@@ -1,17 +1,29 @@
 window.addEventListener("load", () => {
-  document.getElementById("bondScreen").classList.remove("hidden");
-  document.getElementById("appScreen").classList.add("hidden");
-  document.getElementById("lonelyMode").classList.add("hidden");
+  bondScreen.classList.remove("hidden");
+  appScreen.classList.add("hidden");
+  lonelyMode.classList.add("hidden");
   document.body.classList.remove("slow-motion");
 });
 
 const bondBtn = document.getElementById("bondBtn");
+const bondScreen = document.getElementById("bondScreen");
+const appScreen = document.getElementById("appScreen");
+
 const lonelyMode = document.getElementById("lonelyMode");
 const lonelyLine = document.getElementById("lonelyLine");
 
 let softMessage;
 let catPet;
-let lonelyIndex = 0;
+
+const moods = ["calm", "sad", "lonely", "warm"];
+let moodIndex = 0;
+
+const moodTexts = {
+  calm: "Let’s stay here for a moment.",
+  sad: "It’s okay to feel heavy sometimes.",
+  lonely: "You’re not alone in this moment.",
+  warm: "There’s a little warmth here."
+};
 
 const lonelyMessages = [
   "Hey…",
@@ -20,36 +32,45 @@ const lonelyMessages = [
   "I’m here. Take your time."
 ];
 
+let lonelyIndex = 0;
+
 bondBtn.addEventListener("click", () => {
-  const user = document.getElementById("userName").value.trim();
-  const machine = document.getElementById("machineName").value.trim();
-  if (!user || !machine) {
+  if (!userName.value || !machineName.value) {
     alert("Please fill both names.");
     return;
   }
-  document.getElementById("bondScreen").classList.add("hidden");
-  document.getElementById("appScreen").classList.remove("hidden");
+
+  bondScreen.classList.add("hidden");
+  appScreen.classList.remove("hidden");
 
   softMessage = document.getElementById("softMessage");
   catPet = document.getElementById("catPet");
+
   softMessage.innerText = "I'm here. Take your time.";
 });
 
-function setMood(mood) {
-  const messages = {
-    calm: "Let’s stay here for a moment.",
-    sad: "It’s okay to feel heavy sometimes.",
-    lonely: "You’re not alone in this moment.",
-    warm: "There’s a little warmth here."
-  };
-  softMessage.innerText = messages[mood];
-  catPet.src = (mood === "sad" || mood === "lonely") ? "cat-sad.svg" : "cat-soft.svg";
+function rotateMood() {
+  const wheel = document.querySelector(".mood-wheel");
+  moodIndex = (moodIndex + 1) % moods.length;
+
+  wheel.style.transform = `rotate(${moodIndex * 90}deg)`;
+
+  const mood = moods[moodIndex];
+  softMessage.innerText = moodTexts[mood];
+
+  document.getElementById("wheelLabel").innerText = mood;
+
+  catPet.src =
+    mood === "sad" || mood === "lonely"
+      ? "cat-sad.svg"
+      : "cat-soft.svg";
 }
 
 function enterLonelyMode() {
   document.body.classList.add("slow-motion");
   lonelyMode.classList.remove("hidden");
   document.querySelector(".cat-wrapper").classList.add("close");
+
   lonelyIndex = 0;
   lonelyLine.innerText = lonelyMessages[lonelyIndex];
 }
